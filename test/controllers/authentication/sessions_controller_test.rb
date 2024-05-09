@@ -15,5 +15,13 @@ class Authentication::SessionsControllerTest < ActionDispatch::IntegrationTest
       username: @user.username,
       password: 'testme'
     }
+    assert_equal(session[:user_id], @user.id)
+  end
+
+  test 'should destroy a session' do
+    login
+    delete authentication_session_url(@user.id)
+    assert_nil(session[:user_id])
+    assert_redirected_to(new_authentication_session_url)
   end
 end

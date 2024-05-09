@@ -1,0 +1,7 @@
+<div>
+  <h5> Hi <%= Current.user.username %> </h5>
+  <h4> Users </h4>
+  <%= render @users %> <%# Esto renderizara cada instancia dentro de @users (definida en rooms index) y renderizara por cada instancia el archivo _user.html.erb %>
+  <h4> Rooms </h4>
+  <%= render @rooms %>
+</div>

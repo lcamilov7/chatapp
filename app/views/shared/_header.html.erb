@@ -1,0 +1,9 @@
+<div>
+  <%= link_to root_path do %>
+    <h2>ChatApp</h2>
+  <% end %>
+
+  <%= link_to 'Log In', new_authentication_session_path unless Current.user.present? %>
+  <%= link_to 'Sign Up', new_authentication_user_path unless Current.user.present? %>
+  <%= link_to 'Log Out', authentication_session_path(Current.user&.id), data: { turbo_method: :delete } if Current.user.present? %>
+</div>

@@ -10,9 +10,8 @@ class User < ApplicationRecord
       message: 'invalid, only letter and number allowed' # o message: :invalid
     }
   validates :password, presence: true, length: { minimum: 7 }
-
   # Este scope para hcer un fetch de todos los usuarios excepto el usuario actual de nuestra lista de usuarios, no queremos que inicia un chat consigo mismo
-  # scope :all_except, ->(user) { where.not(id: user) } # Current.user.id
+  scope :all_except, ->(user) { where.not(id: user) } # Podremos llamarlo User.all_except
 
   private
 

@@ -16,7 +16,7 @@ class Authentication::UsersControllerTest < ActionDispatch::IntegrationTest
         }
       }
     end
-    assert_redirected_to(new_authentication_user_url)
+    assert_redirected_to(root_url)
   end
 
   test 'should not allow to create user with missing attribute' do

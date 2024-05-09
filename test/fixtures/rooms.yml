@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+futbol:
+  name: Futbol
+  is_private: false
+
+estudio:
+  name: Estudio
+  is_private: false
