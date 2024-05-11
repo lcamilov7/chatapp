@@ -1,7 +1,16 @@
 <div>
   <h5> Hi <%= Current.user.username %> </h5>
+
   <h4> Users </h4>
-  <%= render @users %> <%# Esto renderizara cada instancia dentro de @users (definida en rooms index) y renderizara por cada instancia el archivo _user.html.erb %>
+  <%= turbo_stream_from 'users' %> <%# Este turbo_stream_from es el receptor de action cable para users cuando un user es creado, 'users' es el canal del cual esta recibira y luego esta el div con id mismo nombre donde se insertará %>
+  <div id='users'>
+    <%= render @users %> <%# Esto renderizara cada instancia dentro de @users (definida en rooms index) y renderizara por cada instancia el archivo _user.html.erb %>
+  </div>
+
   <h4> Rooms </h4>
-  <%= render @rooms %>
+  <%= render partial: 'layouts/new_room' %>
+  <%= turbo_stream_from 'rooms' %>
+  <div id='rooms'>
+    <%= render @rooms %>
+  </div>
 </div>

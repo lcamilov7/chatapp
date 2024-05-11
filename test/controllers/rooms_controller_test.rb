@@ -9,4 +9,14 @@ class RoomsControllerTest < ActionDispatch::IntegrationTest
     get rooms_url
     assert_response(:success)
   end
+
+  test 'should create a room' do
+    assert_difference('Room.count') do
+      post rooms_url, params: {
+        room: {
+          name: 'Júlbol'
+        }
+      }
+    end
+  end
 end

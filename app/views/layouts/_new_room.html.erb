@@ -1,0 +1,10 @@
+<%= form_with(model: @room) do |f| %>
+  <% @room.errors.full_messages.each do |error| %>
+    <div>
+      <%= error %>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name, placeholder: 'Name', autocomplete: 'off' %>
+  <button type='submit'>Create</button>
+<% end %>
