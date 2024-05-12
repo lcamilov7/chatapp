@@ -3,6 +3,7 @@ class User < ApplicationRecord
   after_create_commit { broadcast_append_to 'users' } # Esto servirá para escuchar o broadcast cualquier nueva instancia de user agregada a un channel en particular con ActionCable, en esta ocasion el canal se llama users, Le decimos al modelo User que broadcast al channel llamado users cuando una nueva instancia de User sea creada
 
   has_secure_password
+  has_many :messages, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true,
     length: { in: 4..15 },

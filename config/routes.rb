@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: %i[index show edit update destroy]
-  resources :rooms
+
+  resources :rooms do
+    resources :messages
+  end
+
   root 'rooms#index'
 end
